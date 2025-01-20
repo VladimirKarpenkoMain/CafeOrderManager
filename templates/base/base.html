@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    {% block css %} {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="/">Моё Кафе</a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{% url 'orders:order-list' %}">Список заказов</a></li>
+            <li><a href="{% url 'orders:order-create' %}">Создать заказ</a></li>
+            <li><a href="{% url 'orders:order-delete' %}">Удалить заказ</a></li>
+            <li><a href="{% url 'revenue:revenue-data' %}">Расчёт выручки</a></li>
+        </ul>
+    </nav>
+    {% block content %} {% endblock %}
+</body>
+</html>

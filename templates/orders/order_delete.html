@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div class="delete-order-form">
+        <h1>Удалить заказ</h1>
+        {% include 'base/messages.html' %}
+        <form method="post" action="">
+            {% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить заказ?');">
+                Удалить
+            </button>
+        </form>
+    </div>
+{% endblock %}

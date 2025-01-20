@@ -1,0 +1,68 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<h1>Заказы</h1>    
+<div class="orders-table-container">
+    <form method="get" class="search-form">
+        <div>
+            <label for="search">Поиск:</label>
+            <input 
+                type="text" 
+                id="search" 
+                name="search" 
+                placeholder="Введите запрос" 
+                value="{{ request.GET.search }}">
+            <button type="submit">Найти</button>
+        </div>
+    </form>
+    <form method="get" class="orders-filter-form">
+        {{ form.as_p }}
+        <button type="submit">Фильтровать</button>
+    </form>
+    {% include 'base/messages.html' %}
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Номер стола</th>
+                <th>Список блюд</th>
+                <th>Общая стоимость</th>
+                <th>Статус заказа</th>
+                <th>Дата и время</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.id }}</td>
+                <td>{{ order.table_number }}</td>
+                <td>
+                    <ol class="compact-order-list">
+                        {% for order_item in order.prefetched_order_items %}
+                            <li>{{ order_item.item.name }} — {{ order_item.quantity }} шт.</li>
+                        {% endfor %}
+                    </ol>
+                </td>
+                <td>{{ order.total_price }} руб.</td>
+                <td>
+                    <span class="status-badge {% if order.get_status_display == 'Оплачено' %}status-paid{% elif order.get_status_display == 'В ожидании' %}status-pending{% elif order.get_status_display == 'Готово' %}status-ready{% endif %}">
+                        {{ order.get_status_display }}
+                    </span>
+                    {% if not order.get_status_display == 'Оплачено' %}
+                        <a href="{% url 'orders:status-update' order.id %}">
+                            <button type="submit" class="status-button">Изменить статус</button>
+                        </a>
+                    {% endif %}
+                </td>
+                <td>{{ order.created_at }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5" class="no-orders">Нет заказов</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% include 'base/pagination.html' %}
+</div>
+{% endblock %}

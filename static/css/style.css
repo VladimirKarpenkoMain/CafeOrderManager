@@ -1,0 +1,721 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff;
+    padding: 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1f6f37;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li {
+    list-style: none;
+}
+
+.navbar .nav-links li a {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.navbar .nav-links li a:hover {
+    background-color: #ffffff;
+    color: black;
+    transform: scale(1.05);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #000000;
+}
+
+.orders-table-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-x: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.orders-table thead {
+    background-color: #56bd60;
+    color: #fff;
+}
+
+.orders-table th, .orders-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.orders-table th {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.orders-table tbody tr:hover {
+    background-color: #c8ffce;
+    cursor: default;
+}
+
+.orders-table td {
+    font-size: 14px;
+    color: #555;
+}
+
+.orders-table ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.orders-table ol li {
+    font-size: 14px;
+    color: #333;
+}
+
+.compact-order-list {
+    margin: 0;
+    padding-left: 15px;
+    list-style: none;
+    font-size: 14px;
+    color: #333;
+}
+
+
+.compact-order-list li {
+    padding: 2px 0;
+    border-bottom: 1px dotted #ccc;
+}
+
+.compact-order-list li:last-child {
+    border-bottom: none;
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 18px;
+    color: #777;
+    margin-top: 20px;
+}
+
+.status-button {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #56bd60;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+}
+
+.status-paid {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-pending {
+    margin-bottom: 5px;
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-ready {
+    background-color: #cce5ff;
+    color: #004085;
+}
+
+.status-button:hover {
+    background-color: #1f6f37;
+    transform: scale(1.05);
+}
+
+.status-button:active {
+    background-color: #1f6f37;
+}
+
+.status-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
+
+.status-form-box {
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 5, 0.5);
+    text-align: center;
+}
+
+/* Заголовок формы */
+.status-form-title {
+    font-size: 20px;
+    margin-bottom: 30px;
+    color: #333; /* Основной цвет текста */
+}
+
+/* Ошибки формы */
+.status-form-errors {
+    color: #d9534f; /* Красный цвет ошибок */
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Поля формы */
+.status-form p {
+    margin-bottom: 30px;
+}
+
+.status-form label {
+    font-size: 14px;
+    color: #000000;
+    display: block;
+    margin-bottom: 3px;
+    text-align: left; /* Выравнивание по левому краю */
+}
+
+.status-form input,
+.status-form select,
+.status-form textarea {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 14px;
+    color: #000000;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.status-form input:focus,
+.status-form select:focus,
+.status-form textarea:focus {
+    border-color: #000000; /* Розовый цвет при фокусе */
+    outline: none;
+    background-color: #fff;
+}
+
+/* Кнопка формы */
+.status-form-button {
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #3e7043; /* Розовый цвет кнопки */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.status-form-button:hover {
+    background-color: #56bd60;
+    transform: scale(1.05);
+}
+
+.status-form-button:active {
+    background-color: #1f6f37;
+}
+
+.messages {
+  margin: 20px auto;
+  max-width: 600px;
+  list-style-type: none;
+  border-radius: 15px;
+  padding: 20px 25px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  position: relative;
+  text-align: center;
+}
+
+
+.messages .success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 2px solid #c3e6cb;
+  border-radius: 5px;
+}
+
+.messages .error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
+
+.messages .info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+  border-radius: 5px;
+}
+
+.delete-order-form {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.delete-order-form h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.delete-order-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.delete-order-form input, .delete-order-form button {
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.delete-order-form input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.delete-order-form button {
+    background-color: #dc3545;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-order-form button:hover {
+    background-color: #c82333;
+}
+
+.delete-order-form button:active {
+    background-color: #bd2130;
+}
+
+.delete-order-form .csrf-token {
+    display: none;
+}
+
+.revenue-container {
+    text-align: center;
+    background: #ffffff;
+    padding: 30px;
+    margin-top: 35px;
+    margin-left: 35%;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    align-items: center;
+}
+
+.title-revenue {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #1a73e8;
+}
+
+.revenue {
+    font-size: 48px;
+    font-weight: bold;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.updated-revenue {
+    font-size: 14px;
+    color: #666;
+}
+
+.button-revenue {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #1a73e8;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.button-revenue:hover {
+    background-color: #155ab2;
+}
+
+form.orders-filter-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+form.orders-filter-form label {
+    font-weight: bold;
+    margin-right: 5px;
+    font-size: 14px;
+    color: #333;
+}
+
+form.orders-filter-form input[type="date"],
+form.orders-filter-form select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.2s;
+}
+
+form.orders-filter-form input[type="date"]:focus,
+form.orders-filter-form select:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 5px rgba(102, 175, 233, 0.5);
+}
+
+form.orders-filter-form button {
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+form.orders-filter-form button:hover {
+    background-color: #218838;
+}
+
+form.orders-filter-form button:active {
+    background-color: #1e7e34;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.pagination .step-links a,
+.pagination .step-links span {
+    display: inline-block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    color: #4CAF50;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination .step-links a:hover {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.pagination .step-links span {
+    background-color: #f9f9f9;
+    color: #4CAF50;
+    border: none;
+    cursor: default;
+}
+
+.pagination .step-links a:disabled,
+.pagination .step-links a[disabled] {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.pagination .step-links span.current-page {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    border: 2px solid #4CAF50;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-form div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-form label {
+    font-weight: bold;
+    color: #4CAF50;
+    font-family: Arial, sans-serif;
+}
+
+.search-form input[type="text"] {
+    padding: 10px;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #333;
+    width: 250px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-form input[type="text"]::placeholder {
+    color: #aaa;
+    font-style: italic;
+}
+
+.search-form input[type="text"]:focus {
+    border-color: #388E3C;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-form button:hover {
+    background-color: #388E3C;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
+}
+
+.search-form button:active {
+    transform: scale(0.95);
+}
+
+.no-orders {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #888;
+    background-color: #f9f9f9;
+    padding: 15px 0;
+    margin-left: 50px;
+}
+
+
+.order-form {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.order-form input[type="text"],
+.order-form input[name="table_number"] {
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 18px;
+  background-color: #fff;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-form input[type="text"]:focus,
+.order-form input[name="table_number"]:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+  outline: none;
+}
+
+.order-form label {
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.dish-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.dish-row label {
+  cursor: pointer;
+  font-weight: normal;
+  margin-right: 10px;
+  flex: 1;
+  font-size: 16px;
+  color: #555;
+}
+
+.dish-row input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  accent-color: #4CAF50;
+}
+
+.quantity-controller {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  margin-left: 10px;
+}
+
+.quantity-controller input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
+}
+
+.quantity-controller .btn-minus,
+.quantity-controller .btn-plus {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  user-select: none;
+  font-weight: bold;
+  font-size: 20px;
+  background-color: #f3f3f3;
+  color: #333;
+  border: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.quantity-controller .btn-minus:hover,
+.quantity-controller .btn-plus:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.quantity-controller .btn-minus {
+  border-right: 2px solid #ccc;
+}
+
+.quantity-controller .btn-plus {
+  border-left: 2px solid #ccc;
+}
+
+.submit-btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #45a049;
+}
+
+.revenue-table-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
