@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Создание заказа</h1>
+<div class="order-page">
+    <form method="post" id="order-form" class="order-form">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        <div>
+            {{ form.table_number.label_tag }}
+            {{ form.table_number }}
+            {{ form.table_number.errors }}
+        </div>
+        {% for subwidget in form.items.subwidgets %}
+          <div class="dish-row">
+            {{ subwidget.tag }}
+            <label for="{{ subwidget.id_for_label }}">{{ subwidget.choice_label }}</label>
+            <div class="quantity-controller">
+              <span class="btn-minus">-</span>
+                <label>
+                    <input 
+                      type="number" 
+                      name="quantity_{{ subwidget.id_for_label }}" 
+                      min="1" 
+                      value="1"
+                    >
+                </label>
+                <span class="btn-plus">+</span>
+            </div>
+          </div>
+        {% endfor %}
+        {{ form.items.errors }}
+        <button type="submit" class="submit-btn">Создать заказ</button>
+    </form>
+</div>
+    
+<script src="{% static 'js/create-order.js' %}"></script>
+
+{% endblock %}

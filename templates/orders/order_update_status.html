@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+<div class="status-form-container">
+    <div class="status-form-box">
+        <h3 class="status-form-title">Изменить статус заказа ID {{ object.id }}</h3>
+        <form method="post" action="" class="status-form">
+            {% csrf_token %}
+            <div class="status-form-errors">
+                {{ form.non_field_errors }}
+            </div>
+            {{ form.as_p }}
+            <button type="submit" class="status-form-button">Сохранить</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

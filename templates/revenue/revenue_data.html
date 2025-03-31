@@ -1,0 +1,48 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+     <div class="revenue-container">
+        {% include 'base/messages.html' %}
+        <div class="title-revenue">Выручка за оплаченные заказы на {{ today|date:"d.m.Y" }}</div>
+        <p>Обновление происходит автоматически в 22:00</p>
+        <div class="revenue">
+         {% if amount %}
+             {{ amount }} рублей
+         {% else %}
+             Данные отсутствуют
+         {% endif %}
+        </div>
+        {% if update_time %}
+            <div class="updated-revenue">Данные обновлены: {{ update_time }}</div>
+        {% endif %}
+         <form method="post" action="{% url 'revenue:revenue-create' %}">
+            {% csrf_token %}
+            <button class="button-revenue" type="submit">Обновить данные</button>
+        </form>
+     
+    </div>
+    <div class="revenue-table-container">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>Выручка</th>
+                    <th>Дата и время получения</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for revenue in revenues %}
+                <tr>
+                    <td>{{ revenue.amount }}</td>
+                    <td>{{ revenue.created_at }}</td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="2" class="no-orders">Нет выручки</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% include 'base/pagination.html' %}
+    </div>
+    
+{% endblock %}
